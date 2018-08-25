@@ -14,5 +14,13 @@ describe 'category index' do
       expect(page).to have_content(@category_2.title)
       expect(page).to have_content(@category_3.title)
     end
+    it 'should delete category' do
+      visit '/categories'
+
+      click_button('Delete', match: :first)
+      expect(page).to_not have_content(@category_1.title)
+      expect(page).to have_content(@category_2.title)
+      expect(page).to have_content(@category_3.title)
+    end
   end
 end

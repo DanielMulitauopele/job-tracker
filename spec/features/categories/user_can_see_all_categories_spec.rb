@@ -22,5 +22,12 @@ describe 'category index' do
       expect(page).to have_content(@category_2.title)
       expect(page).to have_content(@category_3.title)
     end
+    it 'should edit category' do
+      visit '/categories'
+
+      click_button('Edit', match: :first)
+      expect(page).to have_content("Edit #{@category_1.title}")
+    end
+
   end
 end

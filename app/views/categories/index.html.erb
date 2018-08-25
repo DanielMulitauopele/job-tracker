@@ -1,0 +1,13 @@
+<h1>Job Categories</h1>
+<div>
+  <% @categories.each do |category| %>
+    <h3><%= category.title %></h3>
+      <!-- <form action="/categories/<%= category.id %>/edit" method='GET'>
+        <input name='edit_button' type='submit' value='Edit'/>
+      </form>
+      <form action='/categories/<%= category.id %>' method='post'>
+        <input type="hidden" name="_method" value="DELETE">
+        <input name='delete_button' type='submit' value='Delete'/>
+      </form> -->
+  <% end %>
+</div>

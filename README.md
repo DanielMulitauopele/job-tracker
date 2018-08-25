@@ -1,3 +1,5 @@
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/DanielMulitauopele/job-tracker.svg?columns=all)](https://waffle.io/DanielMulitauopele/job-tracker)
+
 # Job Tracker
 
 ## Learning Goals

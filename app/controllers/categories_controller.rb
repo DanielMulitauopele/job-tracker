@@ -6,4 +6,8 @@ class CategoriesController < ApplicationController
     Category.destroy(params[:id])
     redirect_to '/categories'
   end
+  def show
+    # require "pry"; binding.pry
+    @category = Category.find(params[:id])
+  end
 end

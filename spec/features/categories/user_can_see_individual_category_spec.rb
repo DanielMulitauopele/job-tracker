@@ -13,27 +13,32 @@ describe 'category show' do
     it 'should show category title' do
       visit category_path(@category_1)
 
+      within('h1')
       expect(page).to have_content("#{@category_1.title} Jobs")
     end
     it 'should show titles under job' do
       visit category_path(@category_1)
 
+      within('ul')
       expect(page).to have_content("Title: #{@job_1.title}")
     end
     it 'should show company under job' do
       visit category_path(@category_1)
 
+      within('ul')
       expect(page).to have_content("Company: #{@job_1.company}")
     end
     it 'should show city under job' do
       visit category_path(@category_1)
 
+      within('ul')
       expect(page).to have_content("City: #{@job_1.city}")
     end
     it 'should show interest under job' do
       visit category_path(@category_1)
 
-      expect(page).to have_content("Interest: #{@job_1.interest}")
+      within('ul')
+      expect(page).to have_content("Interest: #{@job_1.level_of_interest}")
     end
     # it 'should delete category' do
     #   visit '/categories'

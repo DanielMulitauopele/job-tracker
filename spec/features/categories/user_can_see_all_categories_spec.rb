@@ -27,6 +27,11 @@ describe 'category index' do
       click_button 'Edit', match: :first
       expect(current_path).to eq(edit_category_path(@category_1))
     end
+    it 'should take user to create new category page' do
+      visit categories_path
 
+      click_link 'Create New Category'
+      expect(current_path).to eq(new_category_path)
+    end
   end
 end

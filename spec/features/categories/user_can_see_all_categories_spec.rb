@@ -4,13 +4,11 @@ describe 'category index' do
   describe 'as a visitor' do
     before (:each) do
       @category_1 = Category.create!(title: 'Software Development')
-      #require 'pry'; binding.pry
       @category_2 = Category.create!(title: 'Marketing')
       @category_3 = Category.create!(title: 'Custodial')
     end
     it 'should show category title' do
       visit '/categories'
-
       expect(page).to have_content(@category_1.title)
       expect(page).to have_content(@category_2.title)
       expect(page).to have_content(@category_3.title)
@@ -28,8 +26,12 @@ describe 'category index' do
 
       click_button 'Edit', match: :first
       expect(current_path).to eq(edit_category_path(@category_1))
-      #expect(page).to have_content("Edit #{@category_1.title}")
     end
+    it 'should take user to create new category page' do
+      visit categories_path
 
+      click_link 'Create New Category'
+      expect(current_path).to eq(new_category_path)
+    end
   end
 end

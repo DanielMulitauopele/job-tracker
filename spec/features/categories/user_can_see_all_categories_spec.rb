@@ -23,11 +23,12 @@ describe 'category index' do
       expect(page).to have_content(@category_2.title)
       expect(page).to have_content(@category_3.title)
     end
-    it 'should edit category' do
+    it 'should take user to edit category page' do
       visit '/categories'
 
-      click_button('Edit', match: :first)
-      expect(page).to have_content("Edit #{@category_1.title}")
+      click_button 'Edit', match: :first
+      expect(current_path).to eq(edit_category_path(@category_1))
+      #expect(page).to have_content("Edit #{@category_1.title}")
     end
 
   end

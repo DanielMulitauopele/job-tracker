@@ -3,9 +3,10 @@ require 'rails_helper'
 describe 'category index' do
   describe 'as a visitor' do
     before (:each) do
-      @category_1 = Category.create(title: 'Software Development')
-      @category_2 = Category.create(title: 'Marketing')
-      @category_3 = Category.create(title: 'Custodial')
+      @category_1 = Category.create!(title: 'Software Development')
+      #require 'pry'; binding.pry
+      @category_2 = Category.create!(title: 'Marketing')
+      @category_3 = Category.create!(title: 'Custodial')
     end
     it 'should show category title' do
       visit '/categories'

@@ -21,7 +21,6 @@ describe 'category show' do
     end
     it 'should show titles under job' do
       visit category_path(@category_1)
-      #require 'pry'; binding.pry
 
       within('ul')
       expect(page).to have_content("Title: #{@job_1.title}")
@@ -30,14 +29,12 @@ describe 'category show' do
       visit category_path(@category_1)
 
       within('ul')
-      #save_and_open_page
       expect(page).to have_content("Company: #{@job_1.company.name}")
     end
     it 'should show city under job' do
       visit category_path(@category_1)
 
       within('ul')
-      #require 'pry'; binding.pry
       expect(page).to have_content("City: #{@job_1.city}")
     end
     it 'should show interest under job' do

@@ -3,13 +3,16 @@ require 'rails_helper'
 describe 'category show' do
   describe 'as a visitor' do
     before(:each) do
-      @category_1 = Category.create(title: 'Software Development')
+    @category_1 = Category.create(title: 'Software Development')
       @category_2 = Category.create(title: 'Marketing')
+      @company_1 = Company.create!(name: "Google")
 
-      @job_1 = Job.create(title: 'Developer', description: 'fun!', level_of_interest: 5, company_id: 1, city: 'Denver')
-      @job_2 = Job.create(title: 'Ad Man', description: 'Don Draper', level_of_interest: 3, company_id: 1, city: 'Denver')
-      @job_3 = Job.create(title: 'Janitor', description: 'How you like them apples?', level_of_interest: 1, company_id: 1, city: 'Denver')
+
+      @job_1 = @company_1.jobs.create(title: 'Developer', description: 'fun!', level_of_interest: 5, city: 'Denver', category_id:@category_1.id)
+      @job_2 = @company_1.jobs.create(title: 'Ad Man', description: 'Don Draper', level_of_interest: 3, city: 'Denver', category_id:@category_1.id)
+      @job_3 = @company_1.jobs.create(title: 'Janitor', description: 'How you like them apples?', level_of_interest: 1, city: 'Denver', category_id:@category_1.id)
     end
+
     it 'should show category title' do
       visit category_path(@category_1)
 
@@ -18,6 +21,7 @@ describe 'category show' do
     end
     it 'should show titles under job' do
       visit category_path(@category_1)
+      #require 'pry'; binding.pry
 
       within('ul')
       expect(page).to have_content("Title: #{@job_1.title}")
@@ -26,12 +30,14 @@ describe 'category show' do
       visit category_path(@category_1)
 
       within('ul')
-      expect(page).to have_content("Company: #{@job_1.company}")
+      #save_and_open_page
+      expect(page).to have_content("Company: #{@job_1.company.name}")
     end
     it 'should show city under job' do
       visit category_path(@category_1)
 
       within('ul')
+      #require 'pry'; binding.pry
       expect(page).to have_content("City: #{@job_1.city}")
     end
     it 'should show interest under job' do

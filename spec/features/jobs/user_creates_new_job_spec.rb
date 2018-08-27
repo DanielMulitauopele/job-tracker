@@ -11,7 +11,7 @@ describe "User creates a new job" do
     fill_in "job[city]", with: "Denver"
 
     click_button "Create Job"
-    save_and_open_page
+    
     expect(current_path).to eq(jobs_path)
 
     expect(page).to have_content("ESPN")

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  root to: 'jobs#index'
 
   resources :companies do
     resources :jobs
+
   end
   resources :categories
-  #resources :jobs, only: [:index]
+  resources :jobs
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

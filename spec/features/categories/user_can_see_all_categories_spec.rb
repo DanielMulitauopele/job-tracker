@@ -8,13 +8,13 @@ describe 'category index' do
       @category_3 = Category.create!(title: 'Custodial')
     end
     it 'should show category title' do
-      visit '/categories'
+      visit categories_path
       expect(page).to have_content(@category_1.title)
       expect(page).to have_content(@category_2.title)
       expect(page).to have_content(@category_3.title)
     end
     it 'should delete category' do
-      visit '/categories'
+      visit categories_path
 
       click_button('Delete', match: :first)
       expect(page).to_not have_content(@category_1.title)
@@ -22,7 +22,7 @@ describe 'category index' do
       expect(page).to have_content(@category_3.title)
     end
     it 'should take user to edit category page' do
-      visit '/categories'
+      visit categories_path
 
       click_button 'Edit', match: :first
       expect(current_path).to eq(edit_category_path(@category_1))

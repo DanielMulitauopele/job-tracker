@@ -1,13 +1,9 @@
-Title: <%= @job.title %>
-<br>
+<%= @job.title%> at  <%= link_to @job.company.name, company_path(@job.company) %>
 
-Description: <%= @job.description %>
 <br>
-
+Location: <%= @job.city %>
+<br>
 Level of Interest: <%= @job.level_of_interest %>
 <br>
-
-City: <%= @job.city %>
+Description: <%= @job.description %>
 <br>
-
-Company: <%= link_to @job.company.name, company_path(@job.company) %>

@@ -3,11 +3,10 @@ require 'rails_helper'
 describe 'category show' do
   describe 'as a visitor' do
     before(:each) do
-    @category_1 = Category.create(title: 'Software Development')
+      @category_1 = Category.create(title: 'Software Development')
       @category_2 = Category.create(title: 'Marketing')
       @company_1 = Company.create!(name: "Google")
-
-
+      
       @job_1 = @company_1.jobs.create(title: 'Developer', description: 'fun!', level_of_interest: 5, city: 'Denver', category_id:@category_1.id)
       @job_2 = @company_1.jobs.create(title: 'Ad Man', description: 'Don Draper', level_of_interest: 3, city: 'Denver', category_id:@category_1.id)
       @job_3 = @company_1.jobs.create(title: 'Janitor', description: 'How you like them apples?', level_of_interest: 1, city: 'Denver', category_id:@category_1.id)

@@ -16,7 +16,6 @@ describe "User sees one company" do
     it 'should show contact form details' do
       visit company_path(@company)
 
-      save_and_open_page
       expect(page).to have_content('Full Name')
       expect(page).to have_content('Position')
       expect(page).to have_content('Email')

@@ -6,7 +6,7 @@ describe 'user can delete an existing job' do
     category = Category.create(title: "IT")
     job = company.jobs.create(title: "IT Tech", level_of_interest: 3, city: "Denver", category_id: category.id)
     visit jobs_path
-    click_button "Delete"
+    click_link "Delete"
     expect(page).to_not have_content(job.title)
   end
 end

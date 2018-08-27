@@ -7,13 +7,27 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
 
+  # def new
+  #   #@company = Company.find(params[:company_id])
+  #   @job = Job.new()
+  # end
+  #
+  # def create
+  #   job = Job.new(job_params)
+  # end
   def new
-    #@company = Company.find(params[:company_id])
-    @job = Job.new()
+    @company = Company.find(params[:company_id])
+    @job = Job.new
+    #require 'pry'; binding.pry
   end
 
   def create
-    job = Job.new(job_params)
+    company = Company.find(params[:company_id])
+    job = company.jobs.create(job_params)
+    redirect_to jobs_path
+    # else
+    #   render :new
+    # end
   end
 
   def show

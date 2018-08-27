@@ -10,6 +10,7 @@
   <li><%= job.level_of_interest %></li>
 
   <li><%= link_to "Edit", edit_job_path(job) %></li>
+  <li><%=link_to'Delete', delete_jobs_path(job.id)%> </li>
 
   </ul>
 <% end %>

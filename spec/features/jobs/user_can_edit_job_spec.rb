@@ -13,9 +13,10 @@ describe 'User edits existing job' do
     fill_in "job[level_of_interest]", with: 5
 
     click_button "Update"
-    expect(current_path).to eq(job_path(job))
-    expect(current_page).to have_content("Tech Specialist")
-    expect(current_page).to have_content("Mars")
-    expect(current_page).to have_content(5)
+    save_and_open_page
+    expect(current_path).to eq(jobs_path)
+    expect(page).to have_content("Tech Specialist")
+    expect(page).to have_content("Mars")
+    expect(page).to have_content(5)
   end
 end

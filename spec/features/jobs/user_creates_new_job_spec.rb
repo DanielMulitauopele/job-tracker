@@ -5,6 +5,8 @@ describe "User creates a new job" do
     company = Company.create!(name: "ESPN")
     visit jobs_path
 
+    click_link "Add a Job"
+
     fill_in "job[title]", with: "Developer"
     fill_in "job[description]", with: "So fun!"
     fill_in "job[level_of_interest]", with: 80
@@ -13,6 +15,7 @@ describe "User creates a new job" do
     click_button "Create"
 
     expect(current_path).to eq(jobs_path)
+    #save_and_open_page
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
     expect(page).to have_content("80")

@@ -1,11 +1,12 @@
 class JobsController < ApplicationController
   def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+    # @company = Company.find(params[:company_id])
+    # @jobs = @company.jobs
+    @jobs = Job.all
   end
 
   def new
-    @company = Company.find(params[:company_id])
+    #@company = Company.find(params[:company_id])
     @job = Job.new()
   end
 
@@ -25,11 +26,14 @@ class JobsController < ApplicationController
   end
 
   def edit
-    # implement on your own!
+    # @categories = Category.all
+    # @companies  = Company.all
+    @job = Job.find(params[:id])
   end
 
   def update
-    # implement on your own!
+    @job.update(job_params)
+    redirect_to job_path(@job)
   end
 
   def destroy

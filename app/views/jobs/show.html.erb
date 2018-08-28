@@ -1,4 +1,4 @@
-<%= @job.title%> at  <%= link_to @company.name, company_path(@company) %>
+<%= @job.title%> at  <%= link_to @job.company.name, company_path(@job.company) %>
 
 <br>
 Location: <%= @job.city %>

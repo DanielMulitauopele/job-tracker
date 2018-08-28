@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe 'User edits existing job' do
   scenario 'a user can edit a job' do
-    company = Company.create(name: "Denver Museum of Nature and Science")
+    company = Company.create!(name: "Denver Museum of Nature and Science")
     job = company.jobs.create(title: "IT Tech", level_of_interest: 3, city: "Denver")
-
     visit job_path(job)
-    save_and_open_path
+    save_and_open_page
+    # require "pry"; binding.pry
     click_link "Edit"
 
     expect(current_path).to eq(edit_job_path(job))

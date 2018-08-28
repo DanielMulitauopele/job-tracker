@@ -3,7 +3,6 @@ class JobsController < ApplicationController
 
   def index
     @company = Company.find(params[:company_id])
-    # require "pry"; binding.pry
     @jobs = @company.jobs
   end
 
@@ -15,14 +14,17 @@ class JobsController < ApplicationController
   def create
     company = Company.find(params[:company_id])
     job = company.jobs.create(job_params)
-    redirect_to jobs_path
+    redirect_to company_jobs_path
   end
 
   def show
+    require "pry"; binding.pry
+    @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
   end
 
   def edit
+    @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
   end
 
@@ -38,7 +40,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :company_id, :category_id)
   end
 
   def set_job

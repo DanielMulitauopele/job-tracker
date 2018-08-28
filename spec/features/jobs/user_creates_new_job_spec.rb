@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "User creates a new job" do
   scenario "a user can create a new job" do
     company = Company.create!(name: "ESPN")
+
     visit new_company_job_path(company)
 
     fill_in "job[title]", with: "Developer"
@@ -11,8 +12,7 @@ describe "User creates a new job" do
     fill_in "job[city]", with: "Denver"
 
     click_button "Create Job"
-    
-    expect(current_path).to eq(jobs_path)
+    expect(current_path).to eq(company_jobs_path(company))
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")

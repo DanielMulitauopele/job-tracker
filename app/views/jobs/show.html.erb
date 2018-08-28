@@ -1,4 +1,4 @@
-<%= @job.title%> at  <%= link_to @job.company.name, company_path(@job.company) %>
+<%= @job.title%> at  <%= link_to @company.name, company_path(@company) %>
 
 <br>
 Location: <%= @job.city %>
@@ -7,3 +7,5 @@ Level of Interest: <%= @job.level_of_interest %>
 <br>
 Description: <%= @job.description %>
 <br>
+
+<li><%= link_to "Edit", edit_job_path(@job) %></li>

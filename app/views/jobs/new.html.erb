@@ -1,6 +1,12 @@
 <h2>Create a new job here!</h2>
 
 <%= form_for [@company, @job] do |f| %>
+
+  <%= f.label :category_id %>
+  <option selected="selected" disabled="disabled">Select a Thing</option>
+
+  <%= f.collection_select :category, Category.all, :id, :title%>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 

@@ -5,8 +5,9 @@ describe "User creates a new job" do
     category_1 = Category.create!(title: 'Software Development')
     category_2 = Category.create!(title: 'Advertising')
     company = Company.create!(name: "ESPN")
+
     visit new_company_job_path(company)
-    save_and_open_page
+
     select 'Software Development', from: "Category"
     fill_in "job[title]", with: "Developer"
     fill_in "job[description]", with: "So fun!"
@@ -15,8 +16,7 @@ describe "User creates a new job" do
 
     click_button "Create Job"
 
-    expect(current_path).to eq(jobs_path)
-    require 'pry'; binding.pry
+    expect(current_path).to eq(company_jobs_path(company))
 
     #expect(Job.last.category_id).to eq(category_1.id)
     expect(page).to have_content("ESPN")

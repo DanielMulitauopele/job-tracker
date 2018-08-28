@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   def index
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
+    # require "pry"; binding.pry
   end
 
   def new
@@ -32,7 +33,8 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    # implement on your own!
+    @job.destroy
+    redirect_to company_jobs_path(@job.company)
   end
 
   private

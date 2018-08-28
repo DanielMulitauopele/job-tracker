@@ -13,7 +13,6 @@ describe 'User edits existing job' do
     fill_in "job[city]", with: "Mars"
     fill_in "job[level_of_interest]", with: 5
 
-    # save_and_open_page
     click_button "Update Job"
     expect(current_path).to eq(company_jobs_path(company))
     expect(page).to have_content("Tech Specialist")

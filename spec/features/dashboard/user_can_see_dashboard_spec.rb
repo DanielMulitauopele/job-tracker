@@ -22,20 +22,20 @@ describe 'as a user' do
     end
     it 'should display a count of jobs by level of interest' do
       visit dashboard_index_path
-
-      within("#level-of-interest-count-5") do
+      save_and_open_page
+      within(".level-of-interest-count-5") do
         expect(page).to have_content(1)
       end
-      within("#level-of-interest-count-4") do
+      within(".level-of-interest-count-4") do
         expect(page).to have_content(1)
       end
-      within("#level-of-interest-count-3") do
+      within(".level-of-interest-count-3") do
         expect(page).to have_content(3)
       end
-      within("#level-of-interest-count-2") do
+      within(".level-of-interest-count-2") do
         expect(page).to have_content(2)
       end
-      within("#level-of-interest-count-1") do
+      within(".level-of-interest-count-1") do
         expect(page).to have_content(2)
       end
     end

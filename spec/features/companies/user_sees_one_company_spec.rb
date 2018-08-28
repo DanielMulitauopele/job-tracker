@@ -8,15 +8,14 @@ describe "User sees one company" do
   scenario "a user sees a company" do
     visit company_path(@company)
 
-    expect(current_path).to eq("/companies/#{@company.id}/jobs")
+    expect(current_path).to eq("/companies/#{@company.id}")
     expect(page).to have_content("ESPN")
-    expect(page).to have_content("Developer")
   end
   describe "a user sees company contact form" do
     it 'should show contact form details' do
       visit company_path(@company)
 
-      expect(page).to have_content('Full Name')
+      expect(page).to have_content('Name')
       expect(page).to have_content('Position')
       expect(page).to have_content('Email')
     end

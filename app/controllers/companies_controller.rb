@@ -21,6 +21,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @contact = Contact.new
     @contact.company_id = @company.id
+    @contacts = @company.sort_contacts
   end
 
   def edit

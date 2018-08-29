@@ -18,3 +18,9 @@ All Jobs for <strong><%= @company.name %></strong>
 
   <%= f.submit "Save" %>
 <% end %>
+<h2> Contacts </h2>
+<% @contacts.each do |contact| %>
+  <li><%= contact.name %> </li>
+  <li><%= contact.position %> </li>
+  <li><%= contact.email %> </li>
+  <% end %>

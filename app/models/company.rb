@@ -3,10 +3,7 @@ class Company < ApplicationRecord
   has_many :jobs, dependent: :destroy
   has_many :contacts
 
-  def self.top_three_companies
-    Company.find_each do |company|
-      require "pry"; binding.pry
-      company.jobs.average(:level_of_interest)
-    end
+  def sort_contacts
+    contacts.order(name: :asc)
   end
 end

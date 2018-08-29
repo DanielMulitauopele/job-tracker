@@ -4,7 +4,6 @@ class JobsController < ApplicationController
   def index
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
-    # require "pry"; binding.pry
   end
 
   def new
@@ -15,16 +14,17 @@ class JobsController < ApplicationController
   def create
     company = Company.find(params[:company_id])
     job = company.jobs.create(job_params)
-    redirect_to company_jobs_path #See update
+    redirect_to company_jobs_path
   end
 
   def show
     @job = Job.find(params[:id])
+    @comment = Comment.new
+    @comments = @job.sort_comments
   end
 
   def edit
     @job = Job.find(params[:id])
-    # require "pry"; binding.pry
   end
 
   def update

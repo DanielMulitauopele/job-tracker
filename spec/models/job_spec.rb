@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'date'
 
 describe Job do
   describe "validations" do
@@ -32,6 +33,19 @@ describe Job do
     it "belongs to a company" do
       job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
       expect(job).to respond_to(:company)
+    end
+  end
+  describe "#instance methods" do
+    it "sorts by descending order" do
+      company = Company.create!(name: "ESPN")
+      date = DateTime.new(2017,2,3,4,5,6)
+      job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+      job.comments.create(content: "Maybe Not.", created_at:date, updated_at:date)
+      comment_2 = job.comments.create(content: "Help.")
+      first_comment = job.sort_comments.first
+
+      expect(first_comment).to eq(comment_2)
+
     end
   end
 end

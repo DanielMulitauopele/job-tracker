@@ -39,12 +39,5 @@ describe 'as a user' do
         expect(page).to have_content(2)
       end
     end
-    it 'should display top 3 companies ranked by average level of interest' do
-      visit dashboard_index_path
-
-      expect(page).to have_content("Top Companies by Interest")
-      expect(page).to have_content("#{@company_4.name @company_3.name @company_2.name}")
-      expect(page).to have_content("5")
-    end
   end
 end

@@ -8,3 +8,12 @@
     <li>Jobs Available: <%= count %></li>
   </ul>
 <% end %>
+
+<h2>Top Companies by Interest</h2>
+
+<% @top_three.each do |name, average| %>
+  <ul>
+    <li> <%= name %> </li>
+    <li> <%= average %> </li>
+  </ul>
+<% end %>

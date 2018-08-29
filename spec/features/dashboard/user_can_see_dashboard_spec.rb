@@ -22,7 +22,7 @@ describe 'as a user' do
     end
     it 'should display a count of jobs by level of interest' do
       visit dashboard_index_path
-      save_and_open_page
+
       within(".level-of-interest-count-5") do
         expect(page).to have_content(1)
       end
@@ -38,6 +38,13 @@ describe 'as a user' do
       within(".level-of-interest-count-1") do
         expect(page).to have_content(2)
       end
+    end
+    it 'should display top 3 companies ranked by average level of interest' do
+      visit dashboard_index_path
+
+      expect(page).to have_content("Top Companies by Interest")
+      expect(page).to have_content("#{@company_4.name @company_3.name @company_2.name}")
+      expect(page).to have_content("5")
     end
   end
 end

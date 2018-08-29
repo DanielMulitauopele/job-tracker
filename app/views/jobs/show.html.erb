@@ -15,6 +15,7 @@ Description: <%= @job.description %>
 <%= f.text_area :content %>
 <%= f.submit %>
 <% end %>
+
 <h2> Comments </h2>
 <% @comments.each do |comment| %>
   <li><%= comment.content %> </li>

@@ -21,7 +21,7 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @comment = Comment.new
-    @comments = @job.comments.all
+    @comments = @job.sort_comments
   end
 
   def edit

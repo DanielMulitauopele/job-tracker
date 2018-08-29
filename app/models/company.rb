@@ -5,5 +5,5 @@ class Company < ApplicationRecord
 
   def sort_contacts
     contacts.order(name: :asc)
-  end  
+  end
 end

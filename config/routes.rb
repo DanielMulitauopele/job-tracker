@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :contacts, only: [:index]
   resources :jobs, only: [:index]
+  resources :dashboard, only: [:index]
 end
 
 

@@ -9,3 +9,9 @@ Description: <%= @job.description %>
 <br>
 
 <li><%= link_to "Edit", edit_job_path(@job) %></li>
+
+<%= form_for [ @job, @comment ] do |f| %>
+<%= f.note :content %>
+<%= f.text_area :content %>
+<%= f.submit %>
+<% end %>

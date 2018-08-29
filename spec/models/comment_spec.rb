@@ -6,7 +6,11 @@ describe Comment, type: :model do
     end
   end
 
+describe "relationships" do
+  it "belongs to a job" do
+    job = Job.create(title: "Astronaut", city: "Mars", company_id: 1, level_of_interest: 300, description: "SPACE")
+    comment = Comment.create(content: 'You can bring your dog to space', job_id: job.id)
 
-    # describe 'relationships' do
-    #   it { should belong_to :job }
-    # end
+    expect(comment).to respond_to(:job)
+  end
+ end

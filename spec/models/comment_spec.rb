@@ -8,10 +8,5 @@ describe Comment, type: :model do
   describe "relationships" do
        it { should belong_to :job }
   end
-  #   company = Company.create(name: "Space People")
-  #   job = company.jobs.create(title: "Astronaut", city: "Mars", level_of_interest: 300, description: "SPACE")
-  #   comment = job.comments.create(content: 'You can bring your dog to space')
-  #
-  #   expect(comment).to respond_to(:job)
-  # end
+
  end

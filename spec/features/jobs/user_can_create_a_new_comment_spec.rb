@@ -6,7 +6,8 @@ describe 'user visits job show page' do
       job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
       visit job_path(job)
       fill_in "comment[content]", with: "Don't do it!"
-      click_link "Create Comment"
+      click_on "Create Comment"
+      save_and_open_page
 
       expect(current_path).to eq(job_path(job))
       expect(page).to have_content("Don't do it!")

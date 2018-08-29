@@ -10,8 +10,12 @@ Description: <%= @job.description %>
 
 <li><%= link_to "Edit", edit_job_path(@job) %></li>
 
-<%= form_for [ @job, @comment ] do |f| %>
-<%= f.note :content %>
+<%= form_for [@job, @comment] do |f| %>
+<%= f.label :content %>
 <%= f.text_area :content %>
 <%= f.submit %>
 <% end %>
+<h2> Comments </h2>
+<% @comments.each do |comment| %>
+  <li><%= comment.content %> </li>
+  <% end %>
